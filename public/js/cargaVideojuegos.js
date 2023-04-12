@@ -1,6 +1,8 @@
 // const btnGuardarJuego = document.getElementById('btnGuardarJuego');
 const formVJ = document.getElementById('formCargarVJ');
 
+console.log("hola");
+
 if (formVJ instanceof HTMLFormElement) {
     formVJ.addEventListener('submit', (evt) => {
         evt.preventDefault();
