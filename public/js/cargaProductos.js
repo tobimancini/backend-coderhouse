@@ -1,20 +1,22 @@
 // const btnGuardarJuego = document.getElementById('btnGuardarJuego');
-const formVJ = document.getElementById('formCargarVJ');
+const formProd = document.getElementById('formCargarProd');
 
 console.log("hola");
 
-if (formVJ instanceof HTMLFormElement) {
-    formVJ.addEventListener('submit', (evt) => {
+if (formProd instanceof HTMLFormElement) {
+    formProd.addEventListener('submit', (evt) => {
         evt.preventDefault();
-        const formData = new FormData(formVJ);
+        const formData = new FormData(formProd);
         const data = {};
+        
         for (const campo in formData) {
             data[campo] = formData[campo];
         }
+        console.log(data);
 
         formData.forEach((value, key) => (data[key] = value))
 
-        fetch('/api/videojuegos', {
+        fetch('/api/productos', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
