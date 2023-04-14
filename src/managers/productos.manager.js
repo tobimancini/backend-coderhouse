@@ -1,33 +1,3 @@
-// import mongoose from "mongoose";
-
-// const schemaVJ = new mongoose.Schema({
-//     nombre: { type: String, required: true },
-//     genero: { type: String, required: true },
-//     plataforma: { type: String, required: true }
-// }, { versionKey: false });
-
-// class VideojuegosManager {
-//     #videojuegosDb
-//     constructor() {
-//         this.#videojuegosDb = mongoose.model('videojuegos', schemaVJ);
-//     }
-
-//     async guardar(datosVj){
-//         const vjGuardado = await this.#videojuegosDb.create(datosVj);
-//         return vjGuardado;
-//     }
-
-//     async obtenerTodos(){
-//         const vjGuardados = await this.#videojuegosDb.find().lean();
-//         return vjGuardados;
-//     }
-//     async obtenerPorId(id){
-//         const vj = await this.#videojuegosDb.findById(id).lean();
-//         return vj
-//     }
-// }
-
-// export const videojuegosManager = new VideojuegosManager();
 import mongoose from 'mongoose';
 
 const schemaProductos = new mongoose.Schema({

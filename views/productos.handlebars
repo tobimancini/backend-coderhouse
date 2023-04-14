@@ -1,22 +1,31 @@
 <h1>Productos</h1>
 <form id="formCargarProd">
     <label for="inputNombre">Nombre</label> <input name="nombre" type="text" id="inputNombre" placeholder="Nombre">
-    <label for="inputDescripcion">Descripcion</label> <input type="text" name="descripcion" id="inputDescripcion" placeholder="Descripcion">
-    {{!-- <label for="inputPrecio">Precio</label> <input type="number" name="precio" id="inputPrecio" placeholder="Precio">
+    <label for="inputDescripcion">Descripcion</label> <input type="text" name="descripcion" id="inputDescripcion"
+        placeholder="Descripcion">
+    {{!-- <label for="inputPrecio">Precio</label> <input type="number" name="precio" id="inputPrecio"
+        placeholder="Precio">
     <label for="inputStock">Stock</label> <input type="number" name="stock" id="inputStock" placeholder="Stock"> --}}
-    <label for="inputCategoria">Categoria</label> <input type="text" name="categoria" id="inputCategoria" placeholder="Categoria">
+    <label for="inputCategoria">Categoria</label> <input type="text" name="categoria" id="inputCategoria"
+        placeholder="Categoria">
     <button type="submit" id="btnGuardarProducto">Guardar</button>
 </form>
 
 <h2>Listado de videojuegos</h2>
-{{#if hayProductos}}
-<ul>
-    {{#each productos}}
-    <li> Nombre: {{this.nombre}} || Descripcion: {{this.descripcion}} || Categoria: {{this.categoria}} </li>
-    {{/each}}
-</ul>
-{{else}}
-<p>No hay productos</p>
-{{/if}}
+<div id="listado">
+    {{#if hayProductos}}
+    <ul>
+        {{#each productos}}
+        <li> Nombre: {{this.nombre}} || Descripcion: {{this.descripcion}} || Categoria: {{this.categoria}} </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p>No hay productos</p>
+    {{/if}}
+</div>
 
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/js/cargaProductos.js"></script>

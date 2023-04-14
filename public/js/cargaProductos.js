@@ -1,7 +1,6 @@
-// const btnGuardarJuego = document.getElementById('btnGuardarJuego');
-const formProd = document.getElementById('formCargarProd');
+const socket = io();
 
-console.log("hola");
+const formProd = document.getElementById('formCargarProd');
 
 if (formProd instanceof HTMLFormElement) {
     formProd.addEventListener('submit', (evt) => {
@@ -25,3 +24,27 @@ if (formProd instanceof HTMLFormElement) {
         })
     })
 }
+
+const plantillaListado = `
+{{#if hayProductos}}
+<ul>
+    {{#each productos}}
+    <li> Nombre: {{this.nombre}} || Descripcion: {{this.descripcion}} || Categoria: {{this.categoria}} </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>No hay productos</p>
+{{/if}}
+`
+const armarListado = Handlebars.compile(plantillaListado)
+
+socket.on('productos', productos => {
+    const hayProductos = productos.length > 0
+    const divLlistado = document.querySelector('#listado')
+    if (divLlistado instanceof HTMLDivElement) {
+        divLlistado.innerHTML = armarListado({
+            productos,
+            hayProductos
+        })
+    }
+})

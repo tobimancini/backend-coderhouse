@@ -1,0 +1,36 @@
+<h1>Chat</h1>
+<h3>Escriba un Mensaje</h3>
+<form id="formChat">
+    <label for="userInput">Usuario</label> <input type="text" name="user" id="userInput">
+    <label for="messageInput">Mensaje</label> <input type="text" name="message" id="messageInput">
+    <button type="submit" id="sendMessageBtn">Enviar</button>
+</form>
+<h3>Mensajes</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Mensajes</th>
+        </tr>
+    </thead>
+    <tbody id="chatContainer">
+        {{#if hayMensajes}}
+
+        {{#each mensajes}}
+        <tr>
+            <td>{{this.user}}</td>
+            <td>{{this.message}}</td>
+        </tr>
+        {{/each}}
+
+        {{else}}
+        <tr>No hay mensajes</tr>
+        {{/if}}
+    </tbody>
+</table>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/actualizarMensajes.js"></script>
