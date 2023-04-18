@@ -1,10 +1,10 @@
 import express from 'express';
-import { PORT } from '../config/servidor.config.js';
 import { engine } from 'express-handlebars';
 import { routerApi } from '../routers/api.router.js';
 import { routerVistas } from '../routers/vistas.router.js';
 import { conectar } from '../database/mongoose.js';
 import { Server } from 'socket.io';
+import { PORT } from '../config/servidor.config.js';
 
 await conectar();
 
