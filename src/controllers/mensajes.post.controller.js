@@ -1,4 +1,4 @@
-import { Mensaje } from "../entidades/mensaje.js";
+import { Mensaje } from "../entidades/chatMensaje.js";
 import { chatManager } from "../managers/chat.manager.js";
 
 export const postMessageController = async (req, res, next) => {
