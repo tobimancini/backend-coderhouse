@@ -1,6 +1,8 @@
 const socket = io();
 
 const formProd = document.getElementById('formCargarProd');
+// const formFiltro = document.getElementById('formFiltro');
+
 
 if (formProd instanceof HTMLFormElement) {
     formProd.addEventListener('submit', (evt) => {
@@ -24,6 +26,28 @@ if (formProd instanceof HTMLFormElement) {
         })
     })
 }
+
+// if (formFiltro instanceof HTMLFormElement) {
+//     formFiltro.addEventListener('submit', (evt) => {
+//         evt.preventDefault();
+//         const formData = new FormData(formFiltro);
+//         const data = {};
+
+//         for (const campo in formData) {
+//             data[campo] = formData[campo];
+//         }
+
+//         formData.forEach((value, key) => (data[key] = value));
+
+//         fetch('/api/productos', {
+//             method: 'GET',
+//             query: JSON.stringify(data),
+//             headers: {
+//                 "Content-Type": "application/json"
+//             }
+//         })
+//     })
+// }
 
 const plantillaListado = `
 {{#if hayProductos}}

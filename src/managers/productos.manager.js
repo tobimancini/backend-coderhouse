@@ -1,10 +1,15 @@
-import mongoose from 'mongoose';
+import { mongoose, Schema, model} from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2'
 
-const schemaProductos = new mongoose.Schema({
+const schemaProductos = new Schema({
     nombre: { type: String, required: true },
     descripcion: { type: String, required: true },
     categoria: { type: String, required: true }
 }, { versionKey: false });
+
+schemaProductos.plugin(mongoosePaginate);
+
+export const productsModel = model('productos', schemaProductos)
 
 class ProductManager {
     #productosDb

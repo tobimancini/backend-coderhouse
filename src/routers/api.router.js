@@ -4,7 +4,7 @@ import { postProductController } from '../controllers/productos.post.controller.
 
 export const routerApi = Router();
 
-// routerApi.post('/videojuegos', postVJController);
 routerApi.post('/productos', postProductController);
+// routerApi.post('/productosFiltrados', postProductController);
 routerApi.post('/chat', postMessageController);
 
